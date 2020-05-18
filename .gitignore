@@ -1,2 +1,4 @@
 blog.md
 .env
+host.ts
+.deno_plugins
