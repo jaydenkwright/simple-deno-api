@@ -1,4 +1,4 @@
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
 // Model
 
@@ -34,3 +34,18 @@ const movies: Array<Movie> = [
         date: '9 February 1976'
     }
 ]
+
+// Controllers
+
+export const getMovies = async ({response} : {response: any}) => {
+    response.body = movies
+}
+
+export const addMovie = async ({ request, response} : {request: any, response: any}) => {
+    const body = await = request.body()
+    const movie: Movie = body.value
+}
+
+const router = new Router()
+
+
