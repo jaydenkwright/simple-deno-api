@@ -1,8 +1,20 @@
 import { serve } from 'https://deno.land/std/http/server.ts'
+import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { getMovies, addMovie } from './controller.ts'
 
-const server = serve({port: 5000})
+const router = new Router()
+const app = new Application()
+const PORT = 5000
 
-for await (const req of server){
-    req.respond({body: 'hello'})
-}
+router
+    .get("/movies", getMovies)
+    .post("/add", addMovie)
+
+app.use(router.routes())
+app.use(router.allowedMethods())
+
+console.log('server running...')
+
+await app.listen({ port: PORT })
+
 

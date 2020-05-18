@@ -1,20 +1,7 @@
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Movie } from './models.ts'
 
-// Model
 
-interface Movie {
-    title: String,
-    year: Number,
-    rating: String,
-    genre: String,
-    director: String,
-    description: String,
-    date: String
-}
-
-// Data
-
-const movies: Array<Movie> = [
+export const movies: Array<Movie> = [
     {
         title: 'Kids',
         year: 1995,
@@ -35,34 +22,6 @@ const movies: Array<Movie> = [
     }
 ]
 
-// Controllers
-
-export const getMovies = async ({response} : {response: any}) => {
-    response.body = movies
-}
-
-export const addMovie = async ({ request, response} : {request: any, response: any}) => {
-    const body = await = request.body()
-    const movie: Movie = body.value
-
-    movies.push(movie)
-    response.body. = {movieAdded: "Sucess"}
-    response.status = 200
-
-}
-
-// server 
-
-const router = new Router()
-const app = new Application()
-const PORT = 5000
-
-router
-    .get("/movies", getMovies)
-    .post("/add", addMovie)
-
-app.use(router.routes())
-app.use(router.allowedMethods())
 
 
 
