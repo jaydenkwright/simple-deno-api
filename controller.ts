@@ -7,5 +7,12 @@ export const getMovies = async ({response} : {response: any}) => {
 }
 
 export const addMovie = async ({ request, response} : {request: any, response: any}) => {
+    const body = await request.body()
+    const movie: Movie = body.value
+
+    const newMovie = await collection.insertOne(movie)
+
+    response.body = {movieAdded: "Sucess"}
+    response.status = 200
 
 }
