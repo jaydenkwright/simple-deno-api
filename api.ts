@@ -44,8 +44,25 @@ export const getMovies = async ({response} : {response: any}) => {
 export const addMovie = async ({ request, response} : {request: any, response: any}) => {
     const body = await = request.body()
     const movie: Movie = body.value
+
+    movies.push(movie)
+    response.body. = {movieAdded: "Sucess"}
+    response.status = 200
+
 }
 
+// server 
+
 const router = new Router()
+const app = new Application()
+const PORT = 5000
+
+router
+    .get("/movies", getMovies)
+    .post("/add", addMovie)
+
+app.use(router.routes())
+app.use(router.allowedMethods())
+
 
 
