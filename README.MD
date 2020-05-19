@@ -5,5 +5,5 @@ This is a simple Deno API server built with [Oak mddleware framework](https://gi
 To run, use the follwing command
 
 ``` bash
-deno run --allow-net --allow-env server.ts
+deno run --allow-net --allow-env --allow-read --allow-write --allow-plugin --unstable server.ts
 ```
