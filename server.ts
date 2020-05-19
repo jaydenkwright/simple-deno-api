@@ -9,7 +9,6 @@ router
     .get("/movies", getMovies)
     .get("/movies/:id", async (context) => {
         const movie = getMovie(context.response.body, context)
-        console.log(`${movie} working...!.>!..`)
         context.response.body = movie
     })
     .post("/add", addMovie)
