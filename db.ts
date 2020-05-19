@@ -8,7 +8,3 @@ client.connectWithUri(host)
 
 const dbName = client.database("test")
 export const collection = dbName.collection("movies");
-
-const mov = await collection.find()
-
-console.log(mov)
