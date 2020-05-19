@@ -1,6 +1,6 @@
 # Simple Deno API
 
-This is a simple Deno API server built with [Oak mddleware framework](https://github.com/oakserver/oak)
+This is a simple Deno API server built with [Oak middleware framework](https://github.com/oakserver/oak) and [deno_mongo](https://deno.land/x/mongo/)
 
 To run, use the follwing command
 

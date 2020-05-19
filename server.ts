@@ -1,6 +1,5 @@
-import { serve } from 'https://deno.land/std/http/server.ts'
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-import { getMovies, addMovie } from './controller.ts'
+import { getMovies, addMovie, getMovie } from './controller.ts'
 
 const router = new Router()
 const app = new Application()
@@ -8,6 +7,11 @@ const PORT = 5000
 
 router
     .get("/movies", getMovies)
+    .get("/movies/:id", async (context) => {
+        const movie = getMovie(context.response.body, context)
+        console.log(`${movie} working...!.>!..`)
+        context.response.body = movie
+    })
     .post("/add", addMovie)
 
 app.use(router.routes())
