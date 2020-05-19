@@ -7,10 +7,7 @@ const PORT = 5000
 
 router
     .get("/movies", getMovies)
-    .get("/movies/:id", async (context) => {
-        const movie = getMovie(context.response.body, context)
-        context.response.body = movie
-    })
+    .get("/movies/:id", getMovie)
     .post("/add", addMovie)
 
 app.use(router.routes())
