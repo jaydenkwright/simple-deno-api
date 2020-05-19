@@ -8,7 +8,7 @@ export const getMovies = async ({response} : {response: any}) => {
 
 export const getMovie = async (response: any, context: any) => {
     const movie = await collection.findOne({'_id': {"$oid": context.params.id}})
-    return Promise.resolve(movie)
+    return movie
 }
 
 export const addMovie = async ({ request, response} : {request: any, response: any},) => {
